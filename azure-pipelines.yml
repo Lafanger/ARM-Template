@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  resourceGroupName: 'rg-dev'
+  resourceGroupName: 'Microservices-POC'
   location: 'Central India'
 
 stages:
