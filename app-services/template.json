@@ -1,0 +1,29 @@
+{
+  "$schema": "...",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServicePlanName": { "type": "string" },
+    "location": { "type": "string" },
+    "appNames": {
+      "type": "array"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2022-03-01",
+      "name": "[parameters('appNames')[copyIndex()]]",
+      "location": "[parameters('location')]",
+      "copy": {
+        "name": "appLoop",
+        "count": "[length(parameters('appNames'))]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+      ],
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+      }
+    }
+  ]
+}

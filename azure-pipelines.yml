@@ -1,0 +1,118 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  resourceGroupName: 'rg-dev'
+  location: 'Central India'
+
+stages:
+
+# ✅ Stage 1 - App Service Plan
+- stage: AppServicePlan
+  jobs:
+  - job: DeployASP
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'app-service-plan/template.json'
+        csmParametersFile: 'app-service-plan/parameters.json'
+
+# ✅ Stage 2 - App Services
+- stage: AppServices
+  dependsOn: AppServicePlan
+  jobs:
+  - job: DeployApps
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'app-services/template.json'
+        csmParametersFile: 'app-services/parameters.json'
+
+# ✅ Stage 3 - Application Insights
+- stage: AppInsights
+  dependsOn: AppServices
+  jobs:
+  - job: DeployAppInsights
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'app-insights/template.json'
+        csmParametersFile: 'app-insights/parameters.json'
+
+# ✅ Stage 4 - Key Vault
+- stage: KeyVault
+  dependsOn: AppInsights
+  jobs:
+  - job: DeployKV
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'keyvault/template.json'
+        csmParametersFile: 'keyvault/parameters.json'
+
+# ✅ Stage 5 - Service Bus
+- stage: ServiceBus
+  dependsOn: KeyVault
+  jobs:
+  - job: DeploySB
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'servicebus/template.json'
+        csmParametersFile: 'servicebus/parameters.json'
+
+# ✅ Stage 6 - API Management
+- stage: APIM
+  dependsOn: ServiceBus
+  jobs:
+  - job: DeployAPIM
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
+        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: '$(resourceGroupName)'
+        location: '$(location)'
+        templateLocation: 'Linked artifact'
+        csmFile: 'apim/template.json'
+        csmParametersFile: 'apim/parameters.json'

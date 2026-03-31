@@ -1,0 +1,16 @@
+{
+  "$schema": "...",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServicePlanName": { "value": "asp-dev" },
+    "location": { "value": "Central India" },
+    "appNames": {
+      "value": [
+        "app-frontend-dev",
+        "app-backend1-dev",
+        "app-backend2-dev",
+        "app-worker-dev"
+      ]
+    }
+  }
+}

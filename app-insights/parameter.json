@@ -1,0 +1,6 @@
+{
+  "parameters": {
+    "appInsightsName": { "value": "appi-dev" },
+    "location": { "value": "Central India" }
+  }
+}

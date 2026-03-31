@@ -1,0 +1,6 @@
+{
+  "parameters": {
+    "serviceBusName": { "value": "sb-dev-demo" },
+    "location": { "value": "Central India" }
+  }
+}

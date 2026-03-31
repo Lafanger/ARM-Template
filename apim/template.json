@@ -1,0 +1,26 @@
+{
+  "$schema": "...",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimName": { "type": "string" },
+    "location": { "type": "string" },
+    "publisherEmail": { "type": "string" },
+    "publisherName": { "type": "string" }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ApiManagement/service",
+      "apiVersion": "2022-08-01",
+      "name": "[parameters('apimName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Consumption",
+        "capacity": 0
+      },
+      "properties": {
+        "publisherEmail": "[parameters('publisherEmail')]",
+        "publisherName": "[parameters('publisherName')]"
+      }
+    }
+  ]
+}
