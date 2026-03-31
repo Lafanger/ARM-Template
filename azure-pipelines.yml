@@ -18,8 +18,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -36,8 +35,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -54,8 +52,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -72,8 +69,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -90,8 +86,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
@@ -108,8 +103,7 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: 'YOUR-SERVICE-CONNECTION'
-        subscriptionId: 'YOUR-SUBSCRIPTION-ID'
+        azureResourceManagerConnection: 'MicroService'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
