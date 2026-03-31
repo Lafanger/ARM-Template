@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "keyVaultName": { "value": "kv-microservice-demo" },
+    "keyVaultName": { "value": "kv-microservices-demo" },
     "location": { "value": "Central India" }
   }
 }
