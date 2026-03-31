@@ -42,7 +42,7 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'app-services/template.json'
-        csmParametersFile: 'app-services/parameters.json'
+        csmParametersFile: 'app-services/parameter.json'
 
 # ✅ Stage 3 - Application Insights
 - stage: AppInsights
@@ -59,7 +59,7 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'app-insights/template.json'
-        csmParametersFile: 'app-insights/parameters.json'
+        csmParametersFile: 'app-insights/parameter.json'
 
 # ✅ Stage 4 - Key Vault
 - stage: KeyVault
@@ -76,7 +76,7 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'keyvault/template.json'
-        csmParametersFile: 'keyvault/parameters.json'
+        csmParametersFile: 'keyvault/parameter.json'
 
 # ✅ Stage 5 - Service Bus
 - stage: ServiceBus
@@ -93,7 +93,7 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'servicebus/template.json'
-        csmParametersFile: 'servicebus/parameters.json'
+        csmParametersFile: 'servicebus/parameter.json'
 
 # ✅ Stage 6 - API Management
 - stage: APIM
@@ -110,4 +110,4 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'apim/template.json'
-        csmParametersFile: 'apim/parameters.json'
+        csmParametersFile: 'apim/parameter.json'
