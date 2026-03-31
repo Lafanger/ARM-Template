@@ -25,7 +25,7 @@ stages:
         location: '$(location)'
         templateLocation: 'Linked artifact'
         csmFile: 'app-service-plan/template.json'
-        csmParametersFile: 'app-service-plan/parameters.json'
+        csmParametersFile: 'app-service-plan/parameter.json'
 
 # ✅ Stage 2 - App Services
 - stage: AppServices
