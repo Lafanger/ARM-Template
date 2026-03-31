@@ -7,8 +7,8 @@
     "appNames": {
       "value": [
         "app-frontend-dev",
-        "app-backend1-dev",
-        "app-backend2-dev",
+        "app-payments-dev",
+        "app-orders-dev",
         "app-worker-dev"
       ]
     }
