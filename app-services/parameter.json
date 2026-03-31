@@ -6,10 +6,10 @@
     "location": { "value": "Central India" },
     "appNames": {
       "value": [
-        "app-frontend-dev",
-        "app-payments-dev",
-        "app-orders-dev",
-        "app-worker-dev"
+        "app-frontend-microservice",
+        "app-payments-microservice",
+        "app-orders-microservice",
+        "app-worker-microservice"
       ]
     }
   }
