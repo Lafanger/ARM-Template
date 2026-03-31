@@ -1,0 +1,20 @@
+{
+  "$schema": "...",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serviceBusName": { "type": "string" },
+    "location": { "type": "string" }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ServiceBus/namespaces",
+      "apiVersion": "2022-10-01-preview",
+      "name": "[parameters('serviceBusName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Basic",
+        "tier": "Basic"
+      }
+    }
+  ]
+}
